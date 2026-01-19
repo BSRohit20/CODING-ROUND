@@ -52,8 +52,24 @@ def first_stable_character(s):
         None
     """
     # TODO: Implement your solution here
-    pass
+    n = len(s)
+    i = 0
 
+    while i < n:
+        j = i
+
+        while j < n and s[j] == s[i]:
+            j += 1
+
+        block_length = j - i
+
+        if block_length >= 2:
+            if s.count(s[i]) == block_length:
+                return s[i]
+
+        i = j
+
+    return None
 
 if __name__ == "__main__":
     # Test your solution here
